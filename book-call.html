@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Call â€” Viraj Upadhyay</title>
+  <meta name="description" content="Schedule a call with Viraj Upadhyay" />
+  <link rel="stylesheet" href="./_next/static/chunks/a0b381fa0782d30a.css" /><link rel="stylesheet" href="./custom.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#0a0a0a; --card:#141414; --border:#262626; --text:#fafafa; --muted:#a1a1aa;
+      --accent:#2563eb; --accent-hover:#1d4ed8; --hover:#1e1e1e; --slot:#1a1a2e;
+      --slot-border:#3b3b5c; --slot-hover:#252547; --today:#3b82f6; --green:#22c55e; }
+    html.light { --bg:#fafafa; --card:#ffffff; --border:#e4e4e7; --text:#09090b; --muted:#71717a;
+      --hover:#f4f4f5; --slot:#eff6ff; --slot-border:#bfdbfe; --slot-hover:#dbeafe; }
+
+    body { font-family:'Inter',ui-sans-serif,system-ui,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
+    .wrap { max-width:1100px; margin:0 auto; padding:24px 16px; }
+    .hdr { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; }
+    .bk { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:var(--muted);
+      text-decoration:none; padding:8px 16px; border:1px solid var(--border); border-radius:8px;
+      transition:all .15s; cursor:pointer; background:none; }
+    .bk:hover { background:var(--hover); color:var(--text); }
+    .hdr-t { font-size:14px; color:var(--muted); font-weight:500; }
+
+    /* OPTIONS */
+    .opts { max-width:640px; margin:0 auto; }
+    .opts-hd { text-align:center; margin-bottom:32px; }
+    .opts-hd h2 { font-size:28px; font-weight:700; margin-bottom:8px; }
+    .opts-hd p { color:var(--muted); font-size:15px; }
+    .cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media(max-width:500px){ .cards{grid-template-columns:1fr;} }
+    .crd { background:var(--card); border:1px solid var(--border); border-radius:14px;
+      padding:28px 24px; cursor:pointer; transition:all .2s; text-align:center;
+      display:flex; flex-direction:column; align-items:center; gap:12px; }
+    .crd:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:0 8px 24px rgba(37,99,235,.1); }
+    .crd-ic { width:56px; height:56px; border-radius:14px; display:flex;
+      align-items:center; justify-content:center; background:var(--hover); }
+    .crd:hover .crd-ic { background:rgba(37,99,235,.15); }
+    .crd-ic svg { width:28px; height:28px; stroke:var(--accent); }
+    .crd h3 { font-size:17px; font-weight:600; }
+    .crd p { font-size:13px; color:var(--muted); line-height:1.5; }
+
+    /* CAL EMBED */
+    .scr { display:none; }
+    .scr.on { display:block; }
+    .cal-w { width:100%; min-height:600px; border-radius:12px; overflow:hidden; }
+    .sb { margin-bottom:20px; }
+
+    /* NORMAL CALL */
+    .nc { display:none; max-width:860px; margin:0 auto; }
+    .nc.on { display:block; }
+    .nc-box { background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden;
+      box-shadow:0 25px 50px -12px rgba(0,0,0,.25); }
+    .nc-head { padding:24px 28px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:14px; }
+    .nc-av { width:44px; height:44px; border-radius:50%; object-fit:cover; border:2px solid var(--border); }
+    .nc-info h3 { font-size:16px; font-weight:600; }
+    .nc-info p { font-size:13px; color:var(--muted); margin-top:1px; }
+    .nc-meta { display:flex; gap:14px; margin-top:4px; font-size:12px; color:var(--muted); }
+    .nc-meta span { display:flex; align-items:center; gap:4px; }
+
+    .nc-body { display:flex; min-height:420px; }
+    @media(max-width:680px) { .nc-body { flex-direction:column; } }
+
+    /* CALENDAR */
+    .cal-p { flex:1; padding:22px 24px; border-right:1px solid var(--border); }
+    @media(max-width:680px) { .cal-p { border-right:none; border-bottom:1px solid var(--border); } }
+    .cal-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
+    .cal-nav h4 { font-size:15px; font-weight:600; }
+    .cal-btns { display:flex; gap:4px; }
+    .cal-btns button { background:none; border:1px solid var(--border); color:var(--text);
+      width:30px; height:30px; border-radius:8px; cursor:pointer; display:flex;
+      align-items:center; justify-content:center; font-size:15px; transition:background .15s; }
+    .cal-btns button:hover { background:var(--hover); }
+    .cg { display:grid; grid-template-columns:repeat(7,1fr); gap:2px; text-align:center; }
+    .cl { font-size:11px; color:var(--muted); padding:5px 0; font-weight:600; text-transform:uppercase; letter-spacing:.5px; }
+    .cd { width:38px; height:38px; display:flex; align-items:center; justify-content:center;
+      border-radius:10px; font-size:13px; cursor:pointer; transition:all .15s; margin:1px auto; font-weight:500; }
+    .cd:hover:not(.dis):not(.sel) { background:var(--hover); }
+    .cd.tod { box-shadow:inset 0 0 0 1.5px var(--today); }
+    .cd.sel { background:var(--accent); color:#fff; font-weight:700; }
+    .cd.dis { color:#3f3f46; cursor:default; }
+    .cd.emp { cursor:default; }
+
+    /* TIME SLOTS */
+    .sl-p { width:240px; padding:22px 16px; display:flex; flex-direction:column; gap:6px;
+      max-height:420px; overflow-y:auto; }
+    @media(max-width:680px) { .sl-p { width:100%; max-height:180px; flex-direction:row; flex-wrap:wrap; padding:14px 16px; }
+      .sl-t { width:100%; } .sl-b { flex:1; min-width:80px; } }
+    .sl-p::-webkit-scrollbar { width:3px; }
+    .sl-p::-webkit-scrollbar-thumb { background:var(--border); border-radius:4px; }
+    .sl-t { font-size:12px; color:var(--muted); margin-bottom:2px; font-weight:600; text-transform:uppercase; letter-spacing:.5px; }
+    .sl-b { width:100%; padding:9px 12px; border:1px solid var(--slot-border); background:var(--slot);
+      color:var(--text); border-radius:8px; font-size:13px; cursor:pointer; text-align:center;
+      transition:all .15s; font-weight:500; }
+    .sl-b:hover { background:var(--slot-hover); transform:translateY(-1px); }
+    .sl-b.act { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
+    .sl-ph { color:var(--muted); font-size:13px; text-align:center; margin-top:40px; line-height:1.6; }
+
+    /* FORM STEP */
+    .nc-form { display:none; padding:28px; flex:1; flex-direction:column; }
+    .nc-form.on { display:flex; }
+    .nc-form h3 { font-size:18px; font-weight:600; margin-bottom:2px; }
+    .nc-form .fs { font-size:13px; color:var(--muted); margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid var(--border); }
+    .fg { margin-bottom:14px; }
+    .fg label { display:block; font-size:12px; font-weight:600; margin-bottom:5px; text-transform:uppercase; letter-spacing:.3px; color:var(--muted); }
+    .fg label em { color:#ef4444; font-style:normal; }
+    .fg input, .fg textarea { width:100%; padding:10px 14px; background:var(--bg);
+      border:1px solid var(--border); border-radius:8px; color:var(--text);
+      font-size:14px; font-family:inherit; transition:border-color .2s; }
+    .fg input:focus, .fg textarea:focus { outline:none; border-color:var(--accent); }
+    .fg textarea { resize:vertical; min-height:60px; }
+    .f-acts { display:flex; gap:10px; margin-top:auto; padding-top:14px; }
+    .f-bk { padding:10px 18px; border:1px solid var(--border); background:none; border-radius:8px;
+      color:var(--text); cursor:pointer; font-size:13px; transition:all .15s; }
+    .f-bk:hover { background:var(--hover); }
+    .f-go { flex:1; padding:10px 18px; background:var(--accent); border:none; border-radius:8px;
+      color:#fff; cursor:pointer; font-size:14px; font-weight:600; transition:all .15s; }
+    .f-go:hover { background:var(--accent-hover); }
+
+    /* SUCCESS */
+    .suc { display:none; text-align:center; padding:48px 20px; max-width:480px; margin:0 auto; }
+    .suc.on { display:block; }
+    .suc-ck { width:64px; height:64px; border-radius:50%; background:var(--green);
+      display:inline-flex; align-items:center; justify-content:center; margin-bottom:20px; }
+    .suc-ck svg { width:32px; height:32px; stroke:#fff; }
+    .suc h2 { font-size:22px; font-weight:700; margin-bottom:8px; }
+    .suc p { color:var(--muted); font-size:14px; line-height:1.6; }
+    .suc-d { margin-top:20px; padding:16px 20px; background:var(--hover); border-radius:10px;
+      text-align:left; font-size:13px; line-height:2; }
+    .suc-d strong { color:var(--text); }
+    .hidden { display:none !important; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hdr">
+      <a href="./index.html" class="bk">â† Back to Portfolio</a>
+      <span class="hdr-t">Schedule a Meeting</span>
+    </div>
+
+    <!-- STEP 1: Choose -->
+    <div class="opts" id="s-opts">
+      <div class="opts-hd">
+        <h2>How would you like to connect?</h2>
+        <p>Choose the type of meeting that works best for you.</p>
+      </div>
+      <div class="cards">
+        <div class="crd" onclick="goVideo()">
+          <div class="crd-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.934a.5.5 0 0 0-.777-.416L16 11"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div>
+          <h3>Video Call</h3>
+          <p>Schedule a Google Meet / Zoom video call via Cal.com</p>
+        </div>
+        <div class="crd" onclick="goNormal()">
+          <div class="crd-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <h3>Phone / Normal Call</h3>
+          <p>Pick a date & time â€” details sent via email</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2A: Cal.com -->
+    <div class="scr" id="s-vid">
+      <div class="sb"><button class="bk" onclick="backOpts()">â† Choose another option</button></div>
+      <div class="cal-w" id="cal-tgt"></div>
+    </div>
+
+    <!-- STEP 2B: Normal Call -->
+    <div class="nc" id="s-nc">
+      <div class="sb"><button class="bk" onclick="backOpts()">â† Choose another option</button></div>
+      <div class="nc-box">
+        <div class="nc-head">
+          <img class="nc-av" src="./Thorfinn%20(1).jpg" alt="Viraj" />
+          <div class="nc-info">
+            <h3>Viraj Upadhyay</h3>
+            <p>Phone / Normal Call</p>
+            <div class="nc-meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>30 min</span>
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Via Email</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calendar + Slots -->
+        <div class="nc-body" id="nc-body-cal">
+          <div class="cal-p">
+            <div class="cal-nav">
+              <h4 id="cm-lbl"></h4>
+              <div class="cal-btns">
+                <button onclick="cMo(-1)">â€¹</button>
+                <button onclick="cMo(1)">â€º</button>
+              </div>
+            </div>
+            <div class="cg" id="cg"></div>
+          </div>
+          <div class="sl-p" id="sl-p">
+            <div class="sl-ph">Select a date<br/>to view available times</div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="nc-form" id="nc-form">
+          <h3>Your Details</h3>
+          <div class="fs" id="fs-sub"></div>
+          <div class="fg">
+            <label>Name <em>*</em></label>
+            <input type="text" id="fn" placeholder="John Doe" />
+          </div>
+          <div class="fg">
+            <label>Email <em>*</em></label>
+            <input type="email" id="fe" placeholder="john@example.com" />
+          </div>
+          <div class="fg">
+            <label>Phone Number</label>
+            <input type="tel" id="fp" placeholder="+91 98765 43210" />
+          </div>
+          <div class="fg">
+            <label>Notes</label>
+            <textarea id="fno" placeholder="What would you like to discuss?"></textarea>
+          </div>
+          <div class="f-acts">
+            <button class="f-bk" onclick="backToCal()">â† Back</button>
+            <button class="f-go" onclick="doSubmit()">Send Request</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="suc" id="s-suc">
+      <div class="suc-ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h2>Request Sent!</h2>
+      <p>Your call request has been sent to Viraj via email. He'll confirm shortly.</p>
+      <div class="suc-d" id="suc-d"></div>
+      <br/><a href="./index.html" class="bk" style="display:inline-flex">â† Back to Portfolio</a>
+    </div>
+  </div>
+
+  <script>
+  // Theme
+  (function(){try{if(localStorage.getItem('theme')==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}}catch(e){}})();
+
+  // --- Cal.com ---
+  let calOk=false;
+  function loadCal(){
+    if(calOk)return;calOk=true;
+    (function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;
+    C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;
+    if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}
+    if(ar[0]===L){const api=function(){p(api,arguments)};const ns=ar[1];api.q=api.q||[];typeof ns==="string"?(cal.ns[ns]=api)&&p(api,ar):p(cal,ar);return;}
+    p(cal,ar);};})(window,"https://app.cal.com/embed/embed.js","init");
+    Cal("init",{origin:"https://cal.com"});
+    Cal("inline",{elementOrSelector:"#cal-tgt",calLink:"viraj-upadhyay-gleer8",layout:"month_view"});
+    const dk=document.documentElement.classList.contains("dark")||!document.documentElement.classList.contains("light");
+    Cal("ui",{theme:dk?"dark":"light",styles:{branding:{brandColor:"#2563eb"}},hideEventTypeDetails:false,layout:"month_view"});
+  }
+
+  // --- Navigation ---
+  function goVideo(){document.getElementById('s-opts').classList.add('hidden');document.getElementById('s-vid').classList.add('on');loadCal();}
+  function goNormal(){document.getElementById('s-opts').classList.add('hidden');document.getElementById('s-nc').classList.add('on');renderCal();}
+  function backOpts(){document.querySelectorAll('.scr,.nc').forEach(e=>{e.classList.remove('on')});document.getElementById('s-opts').classList.remove('hidden');}
+
+  // --- Calendar ---
+  const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const DL=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const now=new Date();
+  let cY=now.getFullYear(), cM=now.getMonth(), selD=null, selS=null;
+
+  function slots(d){
+    const w=d.getDay();
+    if(w===0)return [];
+    const base=w===6?[10,10.5,11,11.5,12]:[9,9.5,10,10.5,11,11.5,13,13.5,14,14.5,15,15.5,16,16.5,17];
+    const seed=d.getDate(),out=[];
+    base.forEach((h,i)=>{
+      if((seed+i)%3!==0){
+        const hr=Math.floor(h),mn=(h%1)*60,ap=hr>=12?'PM':'AM',dh=hr>12?hr-12:hr===0?12:hr;
+        out.push({l:`${dh}:${String(mn).padStart(2,'0')} ${ap}`,h:hr,m:mn});
+      }
+    });
+    return out;
+  }
+
+  function renderCal(){
+    document.getElementById('cm-lbl').textContent=MN[cM]+' '+cY;
+    const g=document.getElementById('cg');g.innerHTML='';
+    DL.forEach(d=>{const e=document.createElement('div');e.className='cl';e.textContent=d;g.appendChild(e);});
+    const fd=new Date(cY,cM,1).getDay(),dim=new Date(cY,cM+1,0).getDate(),td=new Date();
+    for(let i=0;i<fd;i++){const e=document.createElement('div');e.className='cd emp';g.appendChild(e);}
+    for(let d=1;d<=dim;d++){
+      const e=document.createElement('div');e.className='cd';e.textContent=d;
+      const dt=new Date(cY,cM,d);
+      const past=dt<new Date(td.getFullYear(),td.getMonth(),td.getDate());
+      if(past||dt.getDay()===0){e.classList.add('dis');}
+      else{e.addEventListener('click',()=>{selD=dt;selS=null;renderCal();renderSlots(dt);});}
+      if(d===td.getDate()&&cM===td.getMonth()&&cY===td.getFullYear())e.classList.add('tod');
+      if(selD&&d===selD.getDate()&&cM===selD.getMonth()&&cY===selD.getFullYear())e.classList.add('sel');
+      g.appendChild(e);
+    }
+  }
+
+  function renderSlots(dt){
+    const p=document.getElementById('sl-p'),sl=slots(dt);
+    if(!sl.length){p.innerHTML='<div class="sl-ph">No available times<br/>for this day</div>';return;}
+    const ds=dt.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+    p.innerHTML=`<div class="sl-t">${ds}</div>`;
+    sl.forEach(s=>{
+      const b=document.createElement('button');b.className='sl-b';b.textContent=s.l;
+      b.addEventListener('click',()=>{
+        selS=s;
+        document.querySelectorAll('.sl-b').forEach(x=>x.classList.remove('act'));
+        b.classList.add('act');
+        setTimeout(()=>goForm(),350);
+      });
+      p.appendChild(b);
+    });
+  }
+
+  function cMo(d){cM+=d;if(cM>11){cM=0;cY++;}if(cM<0){cM=11;cY--;}renderCal();}
+
+  // --- Form ---
+  function goForm(){
+    document.getElementById('nc-body-cal').style.display='none';
+    document.getElementById('nc-form').classList.add('on');
+    const ds=selD.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+    document.getElementById('fs-sub').textContent=`${ds} at ${selS.l} Â· 30 min Â· Via Email`;
+  }
+  function backToCal(){
+    document.getElementById('nc-form').classList.remove('on');
+    document.getElementById('nc-body-cal').style.display='flex';
+  }
+
+  function doSubmit(){
+    const nm=document.getElementById('fn').value.trim();
+    const em=document.getElementById('fe').value.trim();
+    const ph=document.getElementById('fp').value.trim();
+    const no=document.getElementById('fno').value.trim();
+    if(!nm||!em){alert('Please fill in your name and email.');return;}
+
+    const ds=selD.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+    const ts=selS.l;
+
+    // Disable button and show sending state
+    const btn=document.querySelector('.f-go');
+    btn.disabled=true;
+    btn.textContent='Sending...';
+
+    // Send email directly via FormSubmit.co
+    fetch('https://formsubmit.co/ajax/virajupadhyay16@gmail.com',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        _subject:`Call Request from ${nm} â€” ${ds} at ${ts}`,
+        Name:nm,
+        Email:em,
+        Phone:ph||'Not provided',
+        'Preferred Date':ds,
+        'Preferred Time':ts,
+        Topic:no||'Not specified',
+        _template:'table'
+      })
+    })
+    .then(r=>r.json())
+    .then(data=>{
+      document.getElementById('s-nc').classList.remove('on');
+      document.getElementById('s-suc').classList.add('on');
+      document.getElementById('suc-d').innerHTML=`<strong>Name:</strong> ${nm}<br/><strong>Date:</strong> ${ds}<br/><strong>Time:</strong> ${ts}<br/><strong>Phone:</strong> ${ph||'Not provided'}<br/><strong>Topic:</strong> ${no||'Not specified'}`;
+    })
+    .catch(err=>{
+      // Fallback to mailto if API fails
+      const subj=encodeURIComponent(`Call Request from ${nm} â€” ${ds} at ${ts}`);
+      const body=encodeURIComponent(`Hi Viraj,\n\nNew call request:\n\nName: ${nm}\nEmail: ${em}\nPhone: ${ph||'Not provided'}\nDate: ${ds}\nTime: ${ts}\nTopic: ${no||'Not specified'}`);
+      window.location.href=`mailto:virajupadhyay16@gmail.com?subject=${subj}&body=${body}`;
+      document.getElementById('s-nc').classList.remove('on');
+      document.getElementById('s-suc').classList.add('on');
+      document.getElementById('suc-d').innerHTML=`<strong>Name:</strong> ${nm}<br/><strong>Date:</strong> ${ds}<br/><strong>Time:</strong> ${ts}<br/><strong>Phone:</strong> ${ph||'Not provided'}<br/><strong>Topic:</strong> ${no||'Not specified'}`;
+    })
+    .finally(()=>{
+      btn.disabled=false;
+      btn.textContent='Send Request';
+    });
+  }
+  </script>
+<footer class="site-footer"><span>&copy; 2026 ALL RIGHTS RESERVED.</span><span class="footer-right">DESIGNED &amp; DEVELOPED BY <span class="footer-name">Viraj</span></span></footer>
+</body>
+</html>
+
+
+

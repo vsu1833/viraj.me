@@ -1,0 +1,211 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Viraj Upadhyay</title>
+  <meta name="description" content="Insights, tutorials, and articles on web development, software engineering, and system design by Viraj Upadhyay." />
+  <link rel="stylesheet" href="./_next/static/chunks/a0b381fa0782d30a.css" /><link rel="stylesheet" href="./custom.css" />
+  <script>
+    (function () {
+      const storageKey = "theme";
+      const classes = ["light", "dark"];
+      const root = document.documentElement;
+      let theme = "dark";
+
+      try {
+        const stored = localStorage.getItem(storageKey);
+        if (stored === "light" || stored === "dark") {
+          theme = stored;
+        } else if (stored === "system") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        } else {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+      } catch (error) {
+        theme = "dark";
+      }
+
+      root.classList.remove(...classes);
+      root.classList.add(theme);
+      root.style.colorScheme = theme;
+    })();
+  </script>
+  <style>
+    .blog-coming-soon-icon {
+      animation: floatBounce 3s ease-in-out infinite;
+    }
+    @keyframes floatBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .blog-glow {
+      text-shadow: 0 0 40px rgba(255,255,255,0.08);
+    }
+    .blog-fade-in {
+      animation: blogFadeUp 0.7s ease-out both;
+    }
+    .blog-fade-in-delay-1 { animation-delay: 0.15s; }
+    .blog-fade-in-delay-2 { animation-delay: 0.3s; }
+    .blog-fade-in-delay-3 { animation-delay: 0.45s; }
+    .blog-fade-in-delay-4 { animation-delay: 0.6s; }
+    @keyframes blogFadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .blog-dots span {
+      display: inline-block;
+      animation: dotPulse 1.4s ease-in-out infinite;
+    }
+    .blog-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .blog-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dotPulse {
+      0%, 80%, 100% { opacity: 0.3; }
+      40% { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="font-mono">
+  <!-- â•â•â• NAV â•â•â• -->
+  <nav class="bg-background/60 sticky top-0 z-50 w-full font-mono backdrop-blur-md">
+    <div class="mx-auto max-w-3xl flex items-center justify-between p-1 md:items-baseline" style="border-left-width:2px;border-right-width:2px;border-left-style:solid;border-right-style:solid;border-image:repeating-linear-gradient(180deg,var(--border) 0 8px,transparent 8px 16px) 1">
+      <div class="typography not-typography:max-w-none flex items-baseline gap-6">
+        <a aria-label="Home" class="not-typography h-12 w-12 overflow-hidden rounded-full" href="./index.html">
+          <img alt="Profile picture" width="45" height="45" decoding="async" class="h-full w-full object-cover" style="color:transparent" src="./Thorfinn%20(1).jpg" />
+        </a>
+        <div class="not-typography hidden items-center gap-4 md:flex">
+          <a class="hover:text-foreground/80 relative text-base no-underline transition-colors text-muted-foreground" href="/work">Work</a>
+          <a class="hover:text-foreground/80 relative text-base no-underline transition-colors text-muted-foreground" href="/projects">Projects</a>
+          <a class="hover:text-foreground/80 relative text-base no-underline transition-colors text-foreground font-semibold" href="./blogs.html">Blogs<span class="bg-foreground absolute -bottom-0.5 left-0 h-0.5 w-full"></span></a>
+        </div>
+      </div>
+      <div class="not-typography flex items-center gap-3">
+        <button class="cursor-pointer" type="button" data-theme-toggle>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" style="transform:none;transform-origin:50% 50%;transform-box:fill-box"></path></svg><span class="sr-only">Toggle theme</span>
+        </button>
+      </div>
+    </div>
+    <div class="shrink-0 w-full" style="border-width:1px;border-style:solid;border-image:repeating-linear-gradient(90deg,var(--color-border) 0 8px,transparent 8px 16px) 1"></div>
+  </nav>
+
+  <!-- â•â•â• MOBILE BOTTOM NAV â•â•â• -->
+  <div class="bg-background/80 pb-safe fixed bottom-0 left-0 z-50 flex w-full items-center justify-around border-t p-2 backdrop-blur-lg md:hidden">
+    <a class="flex flex-col items-center gap-1 p-2 transition-colors text-muted-foreground" href="./index.html">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+      <span class="text-[10px] font-medium">Home</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 p-2 transition-colors text-muted-foreground" href="/work">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg>
+      <span class="text-[10px] font-medium">Work</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 p-2 transition-colors text-muted-foreground" href="/projects">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M18 19a5 5 0 0 1-5-5v8"></path><path d="M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5"></path><circle cx="13" cy="12" r="2"></circle><circle cx="20" cy="19" r="2"></circle></svg>
+      <span class="text-[10px] font-medium">Projects</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 p-2 transition-colors text-foreground font-semibold" href="./blogs.html">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+      <span class="text-[10px] font-medium">Blogs</span>
+    </a>
+  </div>
+
+  <!-- â•â•â• BANNER â•â•â• -->
+  <div class="mx-auto max-w-3xl p-4" style="border-left-width:2px;border-right-width:2px;border-left-style:solid;border-right-style:solid;border-image:repeating-linear-gradient(180deg,var(--border) 0 8px,transparent 8px 16px) 1">
+    <div class="relative h-50 overflow-hidden rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
+      <video src="https://res.cloudinary.com/dtevdmz6k/video/upload/q_auto/f_auto/v1775562051/From_KlickPin_CF_Vinland_saga___Kunst_-_Pin-277604764526945973_x7prsv.mp4" autoplay="" loop="" muted="" playsinline="" class="h-full w-full object-cover"></video>
+      <div class="from-background/20 pointer-events-none absolute inset-0 bg-gradient-to-t to-transparent"></div>
+    </div>
+  </div>
+
+  <main class="font-mono">
+    <!-- â•â•â• HATCHED DIVIDER â•â•â• -->
+    <div class="mx-auto max-w-3xl p-4 relative" style="border-left-width:2px;border-right-width:2px;border-left-style:solid;border-right-style:solid;border-image:repeating-linear-gradient(180deg,var(--border) 0 8px,transparent 8px 16px) 1">
+      <div class="absolute inset-0" style="background-image:repeating-linear-gradient(45deg, transparent, transparent 10px, currentcolor 10px, currentcolor 11px);opacity:0.15"></div>
+    </div>
+
+    <!-- â•â•â• COMING SOON HERO â•â•â• -->
+    <div class="mx-auto max-w-3xl p-4" style="border-left-width:2px;border-right-width:2px;border-left-style:solid;border-right-style:solid;border-image:repeating-linear-gradient(180deg,var(--border) 0 8px,transparent 8px 16px) 1">
+      <section class="py-4">
+        <!-- BACK button -->
+        <div class="flex flex-wrap items-center gap-3 mb-8 md:mb-10 blog-fade-in">
+          <a class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3 gap-2 transition-colors" href="./index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+            BACK
+          </a>
+        </div>
+
+        <!-- Coming Soon content -->
+        <div class="flex flex-col items-center justify-center text-center py-16 md:py-24">
+
+          <!-- Animated pen icon -->
+          <div class="blog-fade-in blog-fade-in-delay-1 mb-8">
+            <div class="blog-coming-soon-icon inline-flex items-center justify-center rounded-2xl bg-primary/10 border border-dashed border-primary/30 p-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                <path d="M12 20h9"></path>
+                <path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"></path>
+                <path d="m15 5 3 3"></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Heading -->
+          <h1 class="blog-fade-in blog-fade-in-delay-2 blog-glow text-5xl md:text-7xl font-bold tracking-tight leading-none">
+            <span class="text-muted-foreground">Coming</span> <span class="text-foreground">Soon</span>
+          </h1>
+
+          <!-- Animated dots -->
+          <div class="blog-fade-in blog-fade-in-delay-2 blog-dots text-4xl md:text-5xl text-muted-foreground/60 mt-1 tracking-widest select-none" aria-hidden="true">
+            <span>.</span><span>.</span><span>.</span>
+          </div>
+
+          <!-- Description -->
+          <p class="blog-fade-in blog-fade-in-delay-3 text-muted-foreground mt-8 max-w-md text-base md:text-lg leading-relaxed">
+            I'm currently crafting some awesome articles and tutorials. Stay tuned!
+          </p>
+
+
+        </div>
+      </section>
+    </div>
+
+    <!-- â•â•â• HATCHED DIVIDER â•â•â• -->
+    <div class="mx-auto max-w-3xl p-4 relative" style="border-left-width:2px;border-right-width:2px;border-left-style:solid;border-right-style:solid;border-image:repeating-linear-gradient(180deg,var(--border) 0 8px,transparent 8px 16px) 1">
+      <div class="absolute inset-0" style="background-image:repeating-linear-gradient(-45deg, transparent, transparent 10px, currentcolor 10px, currentcolor 11px);opacity:0.15"></div>
+    </div>
+
+    <!-- â•â•â• FOOTER â•â•â• -->
+  </main>
+
+  <!-- â•â•â• THEME TOGGLE â•â•â• -->
+  <script>
+    (function () {
+      const storageKey = "theme";
+      const classes = ["light", "dark"];
+      const button = document.querySelector("[data-theme-toggle]");
+
+      if (!button) return;
+
+      button.addEventListener("click", function () {
+        const root = document.documentElement;
+        const isDark = root.classList.contains("dark");
+        const next = isDark ? "light" : "dark";
+
+        root.classList.remove(...classes);
+        root.classList.add(next);
+        root.style.colorScheme = next;
+
+        try {
+          localStorage.setItem(storageKey, next);
+        } catch (error) {
+          // Ignore storage errors.
+        }
+      });
+    })();
+  </script>
+<script src="./router.js"></script>
+<footer class="site-footer"><span>&copy; 2026 ALL RIGHTS RESERVED.</span><span class="footer-right">DESIGNED &amp; DEVELOPED BY <span class="footer-name">Viraj</span></span></footer>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,212 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinScribe | Case Study</title>
+  <link rel="stylesheet" href="./_next/static/chunks/a0b381fa0782d30a.css" /><link rel="stylesheet" href="./custom.css" />
+  <script>
+    (function () {
+      const storageKey = "theme";
+      const classes = ["light", "dark"];
+      const root = document.documentElement;
+      let theme = "dark";
+
+      try {
+        const stored = localStorage.getItem(storageKey);
+        if (stored === "light" || stored === "dark") {
+          theme = stored;
+        } else if (stored === "system") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        } else {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+      } catch (error) {
+        theme = "dark";
+      }
+
+      root.classList.remove(...classes);
+      root.classList.add(theme);
+      root.style.colorScheme = theme;
+    })();
+  </script>
+</head>
+<body class="font-mono">
+  <nav class="bg-background/60 sticky top-0 z-50 w-full font-mono backdrop-blur-md">
+    <div class="mx-auto max-w-3xl flex items-center justify-between p-1 md:items-baseline" style="border-left-width:2px;border-right-width:2px;border-left-style:solid;border-right-style:solid;border-image:repeating-linear-gradient(180deg,var(--border) 0 8px,transparent 8px 16px) 1">
+      <div class="typography not-typography:max-w-none flex items-baseline gap-6">
+        <a aria-label="Home" class="not-typography h-12 w-12 overflow-hidden rounded-full" href="./index.html">
+          <img alt="Profile picture" width="45" height="45" decoding="async" class="h-full w-full object-cover" style="color:transparent" src="./Thorfinn%20(1).jpg" />
+        </a>
+        <div class="not-typography hidden items-center gap-4 md:flex">
+          <a class="hover:text-foreground/80 relative text-base no-underline transition-colors text-muted-foreground" href="./work.html">Work</a>
+          <a class="hover:text-foreground/80 relative text-base no-underline transition-colors text-foreground font-semibold" href="./index.html">Projects<span class="bg-foreground absolute -bottom-0.5 left-0 h-0.5 w-full"></span></a>
+          <a class="hover:text-foreground/80 relative text-base no-underline transition-colors text-muted-foreground" href="./blogs.html">Blogs</a>
+        </div>
+      </div>
+      <div class="not-typography flex items-center gap-3">
+        <button class="cursor-pointer" type="button" data-theme-toggle>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" style="transform:none;transform-origin:50% 50%;transform-box:fill-box"></path></svg><span class="sr-only">Toggle theme</span>
+        </button>
+      </div>
+    </div>
+    <div class="shrink-0 w-full" style="border-width:1px;border-style:solid;border-image:repeating-linear-gradient(90deg,var(--color-border) 0 8px,transparent 8px 16px) 1"></div>
+  </nav>
+
+  <main class="font-mono">
+    <div class="mx-auto max-w-3xl p-4" style="border-left-width:2px;border-right-width:2px;border-left-style:solid;border-right-style:solid;border-image:repeating-linear-gradient(180deg,var(--border) 0 8px,transparent 8px 16px) 1">
+      <section class="py-8 md:py-10 space-y-8 md:space-y-10">
+        <div class="flex flex-wrap items-center gap-3 mb-6 md:mb-8">
+          <a class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3" href="./index.html">BACK</a>
+        </div>
+
+        <div class="space-y-6 md:space-y-7">
+          <h1 class="text-4xl md:text-5xl font-semibold tracking-tight">FinScribe</h1>
+          <div class="grid gap-8 md:grid-cols-[1.2fr,0.8fr] md:items-start mt-2 md:mt-3">
+            <p class="text-muted-foreground leading-relaxed text-base md:text-lg max-w-2xl">An AI-powered system that reads financial documents and generates structured, editable credit memo drafts with key insights, risk analysis, and validation.</p>
+            <div class="rounded-xl border border-border/50 bg-background/60 p-5 md:p-6 shadow-[0px_1px_0px_0px_rgba(25,28,33,0.03),0px_0px_0px_1px_rgba(25,28,33,0.04)]">
+              <p class="text-xs font-semibold tracking-[0.22em] text-muted-foreground uppercase mb-3">Stack</p>
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="inline-flex items-center rounded-md px-2 py-0.5 bg-primary/10 text-primary text-xs font-medium border-primary/30 border border-dashed">Python</span>
+                <span class="inline-flex items-center rounded-md px-2 py-0.5 bg-primary/10 text-primary text-xs font-medium border-primary/30 border border-dashed">Streamlit</span>
+                <span class="inline-flex items-center rounded-md px-2 py-0.5 bg-primary/10 text-primary text-xs font-medium border-primary/30 border border-dashed">OpenAI API</span>
+                <span class="inline-flex items-center rounded-md px-2 py-0.5 bg-primary/10 text-primary text-xs font-medium border-primary/30 border border-dashed">pdfplumber</span>
+                <span class="inline-flex items-center rounded-md px-2 py-0.5 bg-primary/10 text-primary text-xs font-medium border-primary/30 border border-dashed">pandas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-border/60 bg-background/60 p-3 md:p-4 shadow-[0px_2px_4px_-2px_rgba(0,0,0,0.18),0px_0px_0px_1px_rgba(25,28,33,0.05)]">
+          <div class="relative aspect-video overflow-hidden rounded-xl">
+            <img src="./Gemini_Generated_Image_jc4dqbjc4dqbjc4d.png" alt="FinScribe" class="h-full w-full object-cover" />
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="mx-auto max-w-3xl p-4 relative" style="border-left-width:2px;border-right-width:2px;border-left-style:solid;border-right-style:solid;border-image:repeating-linear-gradient(180deg,var(--border) 0 8px,transparent 8px 16px) 1">
+      <div class="absolute inset-0" style="background-image:repeating-linear-gradient(45deg, transparent, transparent 10px, currentcolor 10px, currentcolor 11px);opacity:0.15"></div>
+    </div>
+
+    <div class="mx-auto max-w-3xl p-4" style="border-left-width:2px;border-right-width:2px;border-left-style:solid;border-right-style:solid;border-image:repeating-linear-gradient(180deg,var(--border) 0 8px,transparent 8px 16px) 1">
+      <section class="py-8 md:py-10 space-y-12 md:space-y-14">
+        <div class="space-y-3">
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Overview</h2>
+          <p class="text-muted-foreground mt-3 leading-relaxed text-base md:text-lg">FinScribe is an AI-driven tool designed to automate financial document analysis for credit analysts. It processes PDFs such as annual reports and financial statements, extracts key data, and generates structured summaries with risk insights.</p>
+          <p class="text-muted-foreground mt-3 leading-relaxed text-base md:text-lg">The system reduces manual effort, improves consistency, and enhances decision-making by combining document parsing, AI analysis, and validation workflows.</p>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Key Features</h2>
+          <ul class="text-muted-foreground mt-3 list-disc space-y-2 pl-5 leading-relaxed">
+            <li>Automated PDF analysis with table and text extraction</li>
+            <li>AI-generated executive summaries with confidence scores</li>
+            <li>Key financial metrics detection with trend indicators</li>
+            <li>Risk identification with severity levels</li>
+            <li>Source tracing that links insights back to PDF pages</li>
+            <li>Document Q&A chat interface</li>
+            <li>Secondary validation using another AI model</li>
+            <li>Export reports in Markdown/Text format</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">How It Works</h2>
+          <p class="text-muted-foreground mt-3 leading-relaxed text-base md:text-lg">Upload PDF -> Extract Data -> AI Analysis -> Validation -> Final Memo -> Export</p>
+          <ul class="text-muted-foreground mt-3 list-disc space-y-2 pl-5 leading-relaxed">
+            <li>Input: Financial PDF document</li>
+            <li>Processing: Extract tables and text, then analyze with AI</li>
+            <li>Validation: Secondary AI checks accuracy</li>
+            <li>Output: Structured credit memo draft</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Tech Stack</h2>
+          <ul class="text-muted-foreground mt-3 list-disc space-y-2 pl-5 leading-relaxed">
+            <li>Frontend: Streamlit</li>
+            <li>Backend: Python</li>
+            <li>PDF Processing: pdfplumber</li>
+            <li>Data Handling: pandas, numpy</li>
+            <li>AI / LLM: OpenAI (GPT-4o, GPT-4o-mini)</li>
+            <li>Environment: python-dotenv</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Output</h2>
+          <p class="text-muted-foreground mt-3 leading-relaxed text-base md:text-lg">The system generates:</p>
+          <ul class="text-muted-foreground mt-3 list-disc space-y-2 pl-5 leading-relaxed">
+            <li>Executive summary with bullet points</li>
+            <li>Key metrics with trends</li>
+            <li>Top risks with severity levels</li>
+            <li>Confidence scores for each insight</li>
+          </ul>
+          <p class="text-muted-foreground mt-3 leading-relaxed text-base md:text-lg">Example: strong data and incomplete data flags for quick review.</p>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Advanced Features</h2>
+          <ul class="text-muted-foreground mt-3 list-disc space-y-2 pl-5 leading-relaxed">
+            <li>Pseudonymization for data privacy before sending to LLM</li>
+            <li>Token usage and cost monitoring</li>
+            <li>Feedback-based memo regeneration</li>
+            <li>Support for password-protected PDFs</li>
+            <li>Optional local LLM support (Ollama)</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Use Cases</h2>
+          <ul class="text-muted-foreground mt-3 list-disc space-y-2 pl-5 leading-relaxed">
+            <li>Credit analysts preparing reports</li>
+            <li>Financial institutions analyzing documents</li>
+            <li>Students learning financial analysis</li>
+            <li>Automating due diligence workflows</li>
+          </ul>
+        </div>
+
+        <div class="pt-2">
+          <a class="text-foreground hover:text-muted-foreground inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase decoration-2 underline-offset-4 hover:underline" href="https://github.com/adarshnaik1/FinScribe" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>
+          <p class="text-muted-foreground mt-2">Thanks for reading 🙌</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="mx-auto max-w-3xl p-4 relative" style="border-left-width:2px;border-right-width:2px;border-left-style:solid;border-right-style:solid;border-image:repeating-linear-gradient(180deg,var(--border) 0 8px,transparent 8px 16px) 1">
+      <div class="absolute inset-0" style="background-image:repeating-linear-gradient(-45deg, transparent, transparent 10px, currentcolor 10px, currentcolor 11px);opacity:0.15"></div>
+    </div>
+
+  </main>
+  <script>
+    (function () {
+      const storageKey = "theme";
+      const classes = ["light", "dark"];
+      const button = document.querySelector("[data-theme-toggle]");
+
+      if (!button) return;
+
+      button.addEventListener("click", function () {
+        const root = document.documentElement;
+        const isDark = root.classList.contains("dark");
+        const next = isDark ? "light" : "dark";
+
+        root.classList.remove(...classes);
+        root.classList.add(next);
+        root.style.colorScheme = next;
+
+        try {
+          localStorage.setItem(storageKey, next);
+        } catch (error) {
+          // Ignore storage errors.
+        }
+      });
+    })();
+  </script>
+<footer class="site-footer"><span>&copy; 2026 ALL RIGHTS RESERVED.</span><span class="footer-right">DESIGNED &amp; DEVELOPED BY <span class="footer-name">Viraj</span></span></footer>
+</body>
+</html>
+
+
+
